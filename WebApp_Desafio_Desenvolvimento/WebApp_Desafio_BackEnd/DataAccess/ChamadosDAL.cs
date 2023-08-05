@@ -6,10 +6,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WebApp_Desafio_BackEnd.Models;
+using WebApp_Desafio_BackEnd.Interfaces;
 
 namespace WebApp_Desafio_BackEnd.DataAccess
 {
-    public class ChamadosDAL : BaseDAL
+    public class ChamadosDAL : BaseDAL, IChamadosDAL
     {
         private const string ANSI_DATE_FORMAT = "yyyy-MM-dd";
 
@@ -60,11 +61,12 @@ namespace WebApp_Desafio_BackEnd.DataAccess
 
                             lstChamados.Add(chamado);
                         }
+
                         dataReader.Close();
                     }
+
                     dbConnection.Close();
                 }
-
             }
 
             return lstChamados;
@@ -112,13 +114,13 @@ namespace WebApp_Desafio_BackEnd.DataAccess
                                 chamado.Departamento = dataReader.GetString(4);
                             if (!dataReader.IsDBNull(5))
                                 chamado.DataAbertura = DateTime.Parse(dataReader.GetString(5));
-
                         }
+
                         dataReader.Close();
                     }
+
                     dbConnection.Close();
                 }
-
             }
 
             return chamado;
@@ -159,11 +161,9 @@ namespace WebApp_Desafio_BackEnd.DataAccess
                     regsAfetados = dbCommand.ExecuteNonQuery();
                     dbConnection.Close();
                 }
-
             }
 
             return (regsAfetados > 0);
-
         }
 
         public bool ExcluirChamado(int idChamado)
@@ -179,9 +179,7 @@ namespace WebApp_Desafio_BackEnd.DataAccess
                     dbConnection.Open();
                     regsAfetados = dbCommand.ExecuteNonQuery();
                     dbConnection.Close();
-
                 }
-
             }
 
             return (regsAfetados > 0);

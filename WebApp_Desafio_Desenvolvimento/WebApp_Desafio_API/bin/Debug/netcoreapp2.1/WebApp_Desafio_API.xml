@@ -25,6 +25,7 @@
         <member name="M:WebApp_Desafio_API.Controllers.ChamadosController.Gravar(WebApp_Desafio_API.ViewModels.ChamadoRequest)">
             <summary>
             Grava os dados de um chamado
+            <param name="request.id.id">Para inserir um novo registro colocar "ID = 0", senão atualizará o registro encontrado</param>
             </summary>
         </member>
         <member name="M:WebApp_Desafio_API.Controllers.ChamadosController.Excluir(System.Int32)">
@@ -42,6 +43,24 @@
             Lista todos os departamento
             </summary>
             <returns></returns>
+        </member>
+        <member name="M:WebApp_Desafio_API.Controllers.DepartamentosController.Obter(System.Int32)">
+            <summary>
+            Obtém dados de um departamento específico
+            </summary>
+            <param name="idDepartamento">O ID do chamado a ser obtido</param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApp_Desafio_API.Controllers.DepartamentosController.Gravar(WebApp_Desafio_API.ViewModels.DepartamentoRequest)">
+            <summary>
+            Grava os dados de um departamento
+            <param name="request.id.id">Para inserir um novo registro colocar "ID = 0", senão atualizará o registro encontrado</param>
+            </summary>
+        </member>
+        <member name="M:WebApp_Desafio_API.Controllers.DepartamentosController.Excluir(System.Int32)">
+            <summary>
+            Exclui um departamento específico
+            </summary>
         </member>
         <member name="T:WebApp_Desafio_API.Extensions.ControllerExtensions">
             <summary>
@@ -152,6 +171,16 @@
         <member name="P:WebApp_Desafio_API.ViewModels.ChamadoResponse.dataAbertura">
             <summary>
             Data de Abertura do Chamado
+            </summary>
+        </member>
+        <member name="P:WebApp_Desafio_API.ViewModels.DepartamentoRequest.id">
+            <summary>
+            ID do Departamento
+            </summary>
+        </member>
+        <member name="P:WebApp_Desafio_API.ViewModels.DepartamentoRequest.descricao">
+            <summary>
+            Descrição do Departamento
             </summary>
         </member>
         <member name="T:WebApp_Desafio_API.ViewModels.DepartamentoResponse">

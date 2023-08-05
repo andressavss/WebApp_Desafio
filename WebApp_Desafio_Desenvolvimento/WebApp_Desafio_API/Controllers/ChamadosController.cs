@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using WebApp_Desafio_API.ViewModels;
 using WebApp_Desafio_BackEnd.Business;
+using WebApp_Desafio_BackEnd.Interfaces;
 
 namespace WebApp_Desafio_API.Controllers
 {
@@ -15,7 +16,12 @@ namespace WebApp_Desafio_API.Controllers
     [Route("api/[controller]")]
     public class ChamadosController : Controller
     {
-        private ChamadosBLL bll = new ChamadosBLL();
+        private readonly IChamadosBLL _chamadosBLL;
+
+        public ChamadosController(IChamadosBLL chamadosBLL)
+        {
+            _chamadosBLL = chamadosBLL;
+        }
 
         /// <summary>
         /// Lista todos os chamados
@@ -26,12 +32,11 @@ namespace WebApp_Desafio_API.Controllers
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(string), StatusCodes.Status403Forbidden)]
         [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
-        [Route("Listar")]
         public IActionResult Listar()
         {
             try
             {
-                var _lst = this.bll.ListarChamados();
+                var _lst = _chamadosBLL.ListarChamados();
 
                 var lst = from chamado in _lst
                           select new ChamadoResponse()
@@ -70,12 +75,12 @@ namespace WebApp_Desafio_API.Controllers
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(string), StatusCodes.Status403Forbidden)]
         [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
-        [Route("Obter")]
-        public IActionResult Obter([FromQuery] int idChamado)
+        [Route("{idChamado}")]
+        public IActionResult Obter([FromRoute] int idChamado)
         {
             try
             {
-                var _chamado = this.bll.ObterChamado(idChamado);
+                var _chamado = _chamadosBLL.ObterChamado(idChamado);
 
                 var chamado = new ChamadoResponse()
                               {
@@ -105,13 +110,13 @@ namespace WebApp_Desafio_API.Controllers
 
         /// <summary>
         /// Grava os dados de um chamado
+        /// <param name="request.id">Para inserir um novo registro colocar "ID = 0", senão atualizará o registro encontrado</param>
         /// </summary>
         [HttpPost]
         [ProducesResponseType(typeof(bool), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(string), StatusCodes.Status403Forbidden)]
         [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
-        [Route("Gravar")]
         public IActionResult Gravar([FromBody] ChamadoRequest request)
         {
             try
@@ -119,7 +124,7 @@ namespace WebApp_Desafio_API.Controllers
                 if (request == null)
                     throw new ArgumentNullException("Request não informado.");
 
-                var resultado = this.bll.GravarChamado(request.id,
+                var resultado = _chamadosBLL.GravarChamado(request.id,
                                                        request.assunto,
                                                        request.solicitante,
                                                        request.idDepartamento,
@@ -149,12 +154,12 @@ namespace WebApp_Desafio_API.Controllers
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(string), StatusCodes.Status403Forbidden)]
         [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
-        [Route("Excluir")]
+        [Route("{idChamado}")]
         public IActionResult Excluir([FromRoute] int idChamado)
         {
             try
             {
-                var resultado = this.bll.ExcluirChamado(idChamado);
+                var resultado = _chamadosBLL.ExcluirChamado(idChamado);
 
                 return Ok(resultado);
             }

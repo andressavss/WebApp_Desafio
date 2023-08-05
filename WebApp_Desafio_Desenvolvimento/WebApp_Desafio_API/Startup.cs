@@ -9,6 +9,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
+using WebApp_Desafio_BackEnd.Business;
+using WebApp_Desafio_BackEnd.DataAccess;
+using WebApp_Desafio_BackEnd.Interfaces;
 
 namespace WebApp_Desafio_API
 {
@@ -45,6 +48,12 @@ namespace WebApp_Desafio_API
                 .AddJsonOptions(options => options.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)
                 .AddJsonOptions(options => options.SerializerSettings.ContractResolver = new DefaultContractResolver())
                 .AddJsonOptions(options => options.SerializerSettings.Converters.Add(new Newtonsoft.Json.Converters.StringEnumConverter()));
+
+            services.AddScoped<IChamadosBLL, ChamadosBLL>();
+            services.AddScoped<IChamadosDAL, ChamadosDAL>();
+            services.AddScoped<IDepartamentosBLL, DepartamentosBLL>();
+            services.AddScoped<IDepartamentosDAL, DepartamentosDAL>();
+            
 
             services.Configure<CookiePolicyOptions>(options =>
             {

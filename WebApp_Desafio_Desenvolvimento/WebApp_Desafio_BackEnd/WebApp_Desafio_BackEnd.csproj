@@ -84,6 +84,10 @@
     <Compile Include="DataAccess\BaseDAL.cs" />
     <Compile Include="DataAccess\DepartamentosDAL.cs" />
     <Compile Include="DataAccess\ChamadosDAL.cs" />
+    <Compile Include="Interfaces\IChamadosBLL.cs" />
+    <Compile Include="Interfaces\IChamadosDAL.cs" />
+    <Compile Include="Interfaces\IDepartamentosBLL.cs" />
+    <Compile Include="Interfaces\IDepartamentosDAL.cs" />
     <Compile Include="Models\Chamado.cs" />
     <Compile Include="Models\Departamento.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
