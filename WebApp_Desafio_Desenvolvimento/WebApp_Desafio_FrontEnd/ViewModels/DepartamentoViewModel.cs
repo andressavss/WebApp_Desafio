@@ -13,7 +13,7 @@ namespace WebApp_Desafio_FrontEnd.ViewModels
         [DataMember(Name = "ID")]
         public int ID { get; set; }
 
-        [Display(Name = "Descricao")]
+        [Display(Name = "Descrição")]
         [DataMember(Name = "Descricao")]
         public string Descricao { get; set; }
 

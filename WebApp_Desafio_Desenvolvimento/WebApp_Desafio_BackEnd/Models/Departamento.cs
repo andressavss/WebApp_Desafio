@@ -15,7 +15,9 @@ namespace WebApp_Desafio_BackEnd.Models
         [Key]
         public int ID { get; set; }
 
-        [Required(ErrorMessage = "A Descricao é obrigatória")]
+        [Required(ErrorMessage = "A Descrição é obrigatória")]
+        [DataType(DataType.Text)]
+        [StringLength(100, MinimumLength = 5)]
         public string Descricao { get; set; }
     }
 }

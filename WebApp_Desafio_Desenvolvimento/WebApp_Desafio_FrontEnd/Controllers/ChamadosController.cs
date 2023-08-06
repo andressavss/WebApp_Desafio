@@ -105,7 +105,7 @@ namespace WebApp_Desafio_FrontEnd.Controllers
         [HttpGet]
         public IActionResult Editar([FromQuery] int id)
         {
-            ViewData["Title"] = "Cadastrar Novo Chamado";
+            ViewData["Title"] = "Editar Chamado";
 
             try
             {
@@ -170,6 +170,5 @@ namespace WebApp_Desafio_FrontEnd.Controllers
             //return File(reportResult.MainStream, "application/pdf");
             return File(reportResult.MainStream, "application/octet-stream", "rptChamados.pdf");
         }
-
     }
 }

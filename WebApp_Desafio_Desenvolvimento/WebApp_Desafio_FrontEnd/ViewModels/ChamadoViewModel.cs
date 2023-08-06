@@ -31,7 +31,7 @@ namespace WebApp_Desafio_FrontEnd.ViewModels
         [DataMember(Name = "Departamento")]
         public string Departamento { get; set; }
 
-        [Display(Name = "DataAbertura")]
+        [Display(Name = "Data Abertura")]
         [DataMember(Name = "DataAbertura")]
         public DateTime DataAbertura { get; set; }
 
