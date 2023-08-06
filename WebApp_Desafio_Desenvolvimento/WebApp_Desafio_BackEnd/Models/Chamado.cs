@@ -11,6 +11,10 @@ namespace WebApp_Desafio_BackEnd.Models
     public class Chamado
     {
         public static readonly Chamado Empty;
+        public Chamado()
+        {
+            Departamento = new Departamento();
+        }
 
         [Key]
         public int ID { get; set; }
@@ -20,9 +24,7 @@ namespace WebApp_Desafio_BackEnd.Models
 
         [Required(ErrorMessage = "O Solicitante é obrigatório")]
         public string Solicitante { get; set; }
-
-        public int IdDepartamento { get; set; }
-        public string Departamento { get; set; }
+        public Departamento Departamento { get; set; }
 
         public DateTime DataAbertura { get; set; }
     }

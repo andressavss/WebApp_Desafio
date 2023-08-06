@@ -53,9 +53,9 @@ namespace WebApp_Desafio_BackEnd.DataAccess
                             if (!dataReader.IsDBNull(2))
                                 chamado.Solicitante = dataReader.GetString(2);
                             if (!dataReader.IsDBNull(3))
-                                chamado.IdDepartamento = dataReader.GetInt32(3);
+                                chamado.Departamento.ID = dataReader.GetInt32(3);
                             if (!dataReader.IsDBNull(4))
-                                chamado.Departamento = dataReader.GetString(4);
+                                chamado.Departamento.Descricao = dataReader.GetString(4);
                             if (!dataReader.IsDBNull(5))
                                 chamado.DataAbertura = DateTime.Parse(dataReader.GetString(5));
 
@@ -109,9 +109,9 @@ namespace WebApp_Desafio_BackEnd.DataAccess
                             if (!dataReader.IsDBNull(2))
                                 chamado.Solicitante = dataReader.GetString(2);
                             if (!dataReader.IsDBNull(3))
-                                chamado.IdDepartamento = dataReader.GetInt32(3);
+                                chamado.Departamento.ID = dataReader.GetInt32(3);
                             if (!dataReader.IsDBNull(4))
-                                chamado.Departamento = dataReader.GetString(4);
+                                chamado.Departamento.Descricao = dataReader.GetString(4);
                             if (!dataReader.IsDBNull(5))
                                 chamado.DataAbertura = DateTime.Parse(dataReader.GetString(5));
                         }
@@ -137,7 +137,7 @@ namespace WebApp_Desafio_BackEnd.DataAccess
                     if (ID == 0)
                     {
                         dbCommand.CommandText = 
-                            "INSERT INTO chamados (Assunto,Solicitante,IdDepartamento,DataAbertura)" +
+                            "INSERT INTO chamados (Assunto,Solicitante,IdDepartamento,DataAbertura) " +
                             "VALUES (@Assunto,@Solicitante,@IdDepartamento,@DataAbertura)";
                     }
                     else

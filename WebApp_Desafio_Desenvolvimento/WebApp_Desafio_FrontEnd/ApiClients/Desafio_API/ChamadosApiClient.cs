@@ -8,12 +8,7 @@ namespace WebApp_Desafio_FrontEnd.ApiClients.Desafio_API
     {
         private const string tokenAutenticacao = "AEEFC184-9F62-4B3E-BB93-BE42BF0FFA36";
 
-        private const string chamadosListUrl = "api/Chamados/Listar";
-        private const string chamadosObterUrl = "api/Chamados/Obter";
-        private const string chamadosGravarUrl = "api/Chamados/Gravar";
-        private const string chamadosExcluirUrl = "api/Chamados/Excluir";
-
-        private string desafioApiUrl = "https://localhost:44388/"; // Endereço API IIS-Express
+        private string urlBase = "https://localhost:44388/api/Chamados"; // Endereço API IIS-Express
 
         public ChamadosApiClient() : base()
         {
@@ -29,7 +24,7 @@ namespace WebApp_Desafio_FrontEnd.ApiClients.Desafio_API
 
             var querys = default(Dictionary<string, object>); // Não há parâmetros para essa chamada
 
-            var response = base.Get($"{desafioApiUrl}{chamadosListUrl}", querys, headers);
+            var response = base.Get($"{urlBase}", querys, headers);
 
             base.EnsureSuccessStatusCode(response);
 
@@ -50,7 +45,7 @@ namespace WebApp_Desafio_FrontEnd.ApiClients.Desafio_API
                 { "idChamado", idChamado }
             };
 
-            var response = base.Get($"{desafioApiUrl}{chamadosObterUrl}", querys, headers);
+            var response = base.Get($"{urlBase}/{idChamado}", querys, headers);
 
             base.EnsureSuccessStatusCode(response);
 
@@ -66,7 +61,7 @@ namespace WebApp_Desafio_FrontEnd.ApiClients.Desafio_API
                 { "TokenAutenticacao", tokenAutenticacao }
             };
 
-            var response = base.Post($"{desafioApiUrl}{chamadosGravarUrl}", chamado, headers);
+            var response = base.Post($"{urlBase}", chamado, headers);
 
             base.EnsureSuccessStatusCode(response);
 
@@ -87,7 +82,7 @@ namespace WebApp_Desafio_FrontEnd.ApiClients.Desafio_API
                 { "idChamado", idChamado }
             };
 
-            var response = base.Delete($"{desafioApiUrl}{chamadosExcluirUrl}", querys, headers);
+            var response = base.Delete($"{urlBase}/{idChamado}", querys, headers);
 
             base.EnsureSuccessStatusCode(response);
 

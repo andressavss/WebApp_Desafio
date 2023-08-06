@@ -48,7 +48,7 @@
             <summary>
             Obtém dados de um departamento específico
             </summary>
-            <param name="idDepartamento">O ID do chamado a ser obtido</param>
+            <param name="idDepartamento">O ID do departamento a ser obtido</param>
             <returns></returns>
         </member>
         <member name="M:WebApp_Desafio_API.Controllers.DepartamentosController.Gravar(WebApp_Desafio_API.ViewModels.DepartamentoRequest)">

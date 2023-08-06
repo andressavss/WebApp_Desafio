@@ -79,6 +79,11 @@ namespace WebApp_Desafio_API.Controllers
             {
                 var _departamento = _departamentosBLL.ObterDepartamento(idDepartamento);
 
+                if (_departamento == null)
+                {
+                    return Ok(null);
+                }
+
                 var departamento = new DepartamentoResponse()
                 {
                     id = _departamento.ID,

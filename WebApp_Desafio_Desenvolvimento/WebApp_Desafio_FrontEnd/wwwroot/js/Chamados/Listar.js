@@ -36,7 +36,7 @@
 
     $('#btnEditar').click(function () {
         var data = table.row('.selected').data();
-        window.location.href = config.contextPath + 'Chamados/Editar/' + data.ID;
+        window.location.href = config.contextPath + 'Chamados/Editar?ID=' + data.ID;
     });
 
     $('#btnExcluir').click(function () {

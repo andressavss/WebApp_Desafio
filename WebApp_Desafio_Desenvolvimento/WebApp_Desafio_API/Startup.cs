@@ -54,7 +54,6 @@ namespace WebApp_Desafio_API
             services.AddScoped<IDepartamentosBLL, DepartamentosBLL>();
             services.AddScoped<IDepartamentosDAL, DepartamentosDAL>();
             
-
             services.Configure<CookiePolicyOptions>(options =>
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.

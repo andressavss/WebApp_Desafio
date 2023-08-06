@@ -52,6 +52,7 @@ namespace WebApp_Desafio_BackEnd.DataAccess
 
         public Departamento ObterDepartamento(int idDepartamento)
         {
+            
             var departamento = Departamento.Empty;
 
             DataTable dtDepartamentos = new DataTable();
@@ -101,14 +102,14 @@ namespace WebApp_Desafio_BackEnd.DataAccess
                     if (ID  == 0)
                     {
                         dbCommand.CommandText =
-                            "INSERT INTO departamentos (Descricao)" +
+                            "INSERT INTO departamentos (Descricao) " +
                             "VALUES (@Descricao)";
                     }
                     else
                     {
                         dbCommand.CommandText =
                             "UPDATE departamentos " +
-                            "SET Descricao=@Descricao" +
+                            "SET Descricao=@Descricao " +
                             "WHERE ID=@ID";
                     }
 

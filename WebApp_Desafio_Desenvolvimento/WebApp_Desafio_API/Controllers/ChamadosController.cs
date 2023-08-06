@@ -44,8 +44,8 @@ namespace WebApp_Desafio_API.Controllers
                               id = chamado.ID,
                               assunto = chamado.Assunto,
                               solicitante = chamado.Solicitante,
-                              idDepartamento = chamado.IdDepartamento,
-                              departamento = chamado.Departamento,
+                              idDepartamento = chamado.Departamento.ID,
+                              departamento = chamado.Departamento.Descricao,
                               dataAbertura = chamado.DataAbertura
                           };
 
@@ -87,8 +87,8 @@ namespace WebApp_Desafio_API.Controllers
                                   id = _chamado.ID,
                                   assunto = _chamado.Assunto,
                                   solicitante = _chamado.Solicitante,
-                                  idDepartamento = _chamado.IdDepartamento,
-                                  departamento = _chamado.Departamento,
+                                  idDepartamento = _chamado.Departamento.ID,
+                                  departamento = _chamado.Departamento.Descricao,
                                   dataAbertura = _chamado.DataAbertura
                               };
 

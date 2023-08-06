@@ -23,7 +23,7 @@ namespace WebApp_Desafio_BackEnd.Business
         public Chamado ObterChamado(int idChamado)
         {
             return _chamadosDAL.ObterChamado(idChamado);
-        }
+        }       
 
         public bool GravarChamado(int ID, string Assunto, string Solicitante, int IdDepartamento, DateTime DataAbertura)
         {
