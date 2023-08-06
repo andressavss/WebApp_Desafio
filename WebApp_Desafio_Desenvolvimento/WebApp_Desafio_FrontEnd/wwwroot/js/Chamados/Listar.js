@@ -17,6 +17,17 @@
         ],
     });
 
+    $('#dataTables-Chamados tbody').on("dblclick", 'tr', function () {
+        if ($(this).hasClass('selected')) {
+            $(this).removeClass('selected');
+        } else {
+            table.$('tr.selected').removeClass('selected');
+            $(this).addClass('selected');
+        }
+        var data = table.row('.selected').data();
+        window.location.href = config.contextPath + 'Chamados/Editar?ID=' + data.ID;
+    });
+
     $('#dataTables-Chamados tbody').on('click', 'tr', function () {
         if ($(this).hasClass('selected')) {
             $(this).removeClass('selected');
