@@ -22,7 +22,6 @@ namespace WebApp_Desafio_BackEnd.DataAccess
             {
                 using (SQLiteCommand dbCommand = dbConnection.CreateCommand())
                 {
-
                     dbCommand.CommandText = 
                         "SELECT chamados.ID, " + 
                         "       Assunto, " +

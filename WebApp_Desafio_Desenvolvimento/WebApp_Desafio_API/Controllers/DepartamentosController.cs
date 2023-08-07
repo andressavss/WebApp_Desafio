@@ -25,7 +25,7 @@ namespace WebApp_Desafio_API.Controllers
         }
 
         /// <summary>
-        /// Lista todos os departamento
+        /// Lista todos os departamentos
         /// </summary>
         /// <returns></returns>
         [HttpGet]

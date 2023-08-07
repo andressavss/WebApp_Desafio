@@ -53,7 +53,6 @@ namespace WebApp_Desafio_FrontEnd.ApiClients
                     cliente.Headers.Add(header.Key, header.Value.ToString());
                 }
             }
-
             return cliente;
         }
 
@@ -86,7 +85,6 @@ namespace WebApp_Desafio_FrontEnd.ApiClients
                     webRequest.Headers.Add(header.Key, header.Value.ToString());
                 }
             }
-
             return webRequest;
         }
 
@@ -123,8 +121,7 @@ namespace WebApp_Desafio_FrontEnd.ApiClients
                 }
 
                 throw new Exception(responseMessage);
-            }
-            
+            }            
         }
 
         protected HttpWebResponse Post<T>(string url, T body, Dictionary<string, object> queries = null, Dictionary<string, object> headers = null)
@@ -174,7 +171,6 @@ namespace WebApp_Desafio_FrontEnd.ApiClients
             {
                 stream.Write(byteArray, 0, byteArray.Length);
             }
-
             return (HttpWebResponse)webRequest.GetResponse();
         }
 

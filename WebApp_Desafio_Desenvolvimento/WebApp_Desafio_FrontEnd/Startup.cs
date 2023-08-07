@@ -85,7 +85,6 @@ namespace WebApp_Desafio_FrontEnd
             //      However, .NET Core can be extended to support additional encodings
             // like Windows-1252, Shift-JIS, GB2312 by registering the CodePagesEncodingProvider.
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
-
         }
     }
 }

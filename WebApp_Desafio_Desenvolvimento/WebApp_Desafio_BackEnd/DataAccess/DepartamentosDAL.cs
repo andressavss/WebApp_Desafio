@@ -20,7 +20,6 @@ namespace WebApp_Desafio_BackEnd.DataAccess
             {
                 using (SQLiteCommand dbCommand = dbConnection.CreateCommand())
                 {
-
                     dbCommand.CommandText = "SELECT * FROM departamentos";
 
                     dbConnection.Open();
@@ -49,8 +48,7 @@ namespace WebApp_Desafio_BackEnd.DataAccess
         }
 
         public Departamento ObterDepartamento(int idDepartamento)
-        {
-            
+        {        
             var departamento = Departamento.Empty;
 
             using (SQLiteConnection dbConnection = new SQLiteConnection(CONNECTION_STRING))

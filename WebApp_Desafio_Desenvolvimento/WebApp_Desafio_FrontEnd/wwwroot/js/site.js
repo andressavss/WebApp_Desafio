@@ -18,7 +18,6 @@ function FormularioInvalidoAlert(form) {
         } else if (mensagensDeErro[i].innerHTML) {
             msg = mensagensDeErro[i].innerHTML;
             errElem = mensagensDeErro[i];
-
         }
     }
     if (msg) {
