@@ -49,7 +49,7 @@
         var data = table.row('.selected').data();
         window.location.href = config.contextPath + 'Chamados/Editar?ID=' + data.ID;
     });
-
+    
     $('#btnExcluir').click(function () {
 
         let data = table.row('.selected').data();
@@ -93,9 +93,7 @@
                 } else {
                     console.log("Cancelou a exclusão.");
                 }
-
             });
         }
     });
-
 });

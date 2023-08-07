@@ -40,10 +40,8 @@ namespace WebApp_Desafio_BackEnd.DataAccess
 
                             lstDepartamentos.Add(departamento);
                         }
-
                         dataReader.Close();
                     }
-
                     dbConnection.Close();
                 }
             }
@@ -54,8 +52,6 @@ namespace WebApp_Desafio_BackEnd.DataAccess
         {
             
             var departamento = Departamento.Empty;
-
-            DataTable dtDepartamentos = new DataTable();
 
             using (SQLiteConnection dbConnection = new SQLiteConnection(CONNECTION_STRING))
             {
@@ -82,12 +78,10 @@ namespace WebApp_Desafio_BackEnd.DataAccess
 
                             dataReader.Close();
                         }
-
                         dbConnection.Close();
                     }
                 }
             }
-
             return departamento;
         }
 
@@ -121,7 +115,6 @@ namespace WebApp_Desafio_BackEnd.DataAccess
                     dbConnection.Close();
                 }
             }
-
             return (regsAfetados > 0);
         }
 
@@ -140,7 +133,6 @@ namespace WebApp_Desafio_BackEnd.DataAccess
                     dbConnection.Close();
                 }
             }
-
             return (regsAfetados > 0);
         }
     }

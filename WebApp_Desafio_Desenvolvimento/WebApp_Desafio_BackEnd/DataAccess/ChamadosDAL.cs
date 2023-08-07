@@ -18,8 +18,6 @@ namespace WebApp_Desafio_BackEnd.DataAccess
         {
             IList<Chamado> lstChamados = new List<Chamado>();
 
-            DataTable dtChamados = new DataTable();
-
             using (SQLiteConnection dbConnection = new SQLiteConnection(CONNECTION_STRING))
             {
                 using (SQLiteCommand dbCommand = dbConnection.CreateCommand())
@@ -61,22 +59,17 @@ namespace WebApp_Desafio_BackEnd.DataAccess
 
                             lstChamados.Add(chamado);
                         }
-
                         dataReader.Close();
                     }
-
                     dbConnection.Close();
                 }
             }
-
             return lstChamados;
         }
 
         public Chamado ObterChamado(int idChamado)
         {
             var chamado = Chamado.Empty;
-
-            DataTable dtChamados = new DataTable();
 
             using (SQLiteConnection dbConnection = new SQLiteConnection(CONNECTION_STRING))
             {
@@ -115,14 +108,11 @@ namespace WebApp_Desafio_BackEnd.DataAccess
                             if (!dataReader.IsDBNull(5))
                                 chamado.DataAbertura = DateTime.Parse(dataReader.GetString(5));
                         }
-
                         dataReader.Close();
                     }
-
                     dbConnection.Close();
                 }
             }
-
             return chamado;
         }
 
@@ -162,7 +152,6 @@ namespace WebApp_Desafio_BackEnd.DataAccess
                     dbConnection.Close();
                 }
             }
-
             return (regsAfetados > 0);
         }
 
@@ -181,8 +170,36 @@ namespace WebApp_Desafio_BackEnd.DataAccess
                     dbConnection.Close();
                 }
             }
-
             return (regsAfetados > 0);
+        }
+
+        public List<string> ListarSolicitantes()
+        {
+            var solicitantes = new List<string>();
+
+            using (SQLiteConnection dbConnection = new SQLiteConnection(CONNECTION_STRING))
+            {
+                using (SQLiteCommand dbCommand = dbConnection.CreateCommand())
+                {
+
+                    dbCommand.CommandText = $@"SELECT DISTINCT Solicitante FROM chamados";
+
+                    dbConnection.Open();
+
+                    using (SQLiteDataReader dataReader = dbCommand.ExecuteReader())
+                    {
+
+                        while (dataReader.Read())
+                        {
+                            if (!dataReader.IsDBNull(0))
+                                solicitantes.Add(dataReader.GetString(0));
+                        }
+                        dataReader.Close();
+                    }
+                    dbConnection.Close();
+                }
+            }
+            return solicitantes;
         }
     }
 }

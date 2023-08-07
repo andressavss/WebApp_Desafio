@@ -33,6 +33,12 @@
             Exclui um chamado específico
             </summary>
         </member>
+        <member name="M:WebApp_Desafio_API.Controllers.ChamadosController.ListarSolicitante">
+            <summary>
+            Lista todos os chamados
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:WebApp_Desafio_API.Controllers.DepartamentosController">
             <summary>
             DepartamentosController

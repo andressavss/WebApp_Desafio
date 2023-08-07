@@ -170,5 +170,21 @@ namespace WebApp_Desafio_FrontEnd.Controllers
             //return File(reportResult.MainStream, "application/pdf");
             return File(reportResult.MainStream, "application/octet-stream", "rptChamados.pdf");
         }
+
+        [HttpGet]
+        public IActionResult ListarSolicitante()
+        {
+            try
+            {
+                var departamentosApiClient = new ChamadosApiClient();
+                List<string> solicitantes = departamentosApiClient.ListarSolicitantes();
+                return Ok(solicitantes);
+
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }

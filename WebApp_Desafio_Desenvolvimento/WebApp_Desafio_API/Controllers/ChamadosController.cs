@@ -124,6 +124,11 @@ namespace WebApp_Desafio_API.Controllers
                 if (request == null)
                     throw new ArgumentNullException("Request não informado.");
 
+                if (request.dataAbertura < DateTime.Now)
+                {
+                    throw new ArgumentException("Por favor, informe uma data válida.");
+                }
+
                 var resultado = _chamadosBLL.GravarChamado(request.id,
                                                        request.assunto,
                                                        request.solicitante,
@@ -162,6 +167,38 @@ namespace WebApp_Desafio_API.Controllers
                 var resultado = _chamadosBLL.ExcluirChamado(idChamado);
 
                 return Ok(resultado);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (ApplicationException ex)
+            {
+                return StatusCode(422, ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Lista todos os solicitantes
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [ProducesResponseType(typeof(List<string>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status403Forbidden)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
+        [Route("Solicitantes")]
+        public IActionResult ListarSolicitante()
+        {
+            try
+            {
+                var solicitantes = _chamadosBLL.ListarSolicitantes();
+
+                return Ok(solicitantes);
             }
             catch (ArgumentException ex)
             {

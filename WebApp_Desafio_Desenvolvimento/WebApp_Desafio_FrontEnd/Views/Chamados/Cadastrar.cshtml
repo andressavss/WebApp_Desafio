@@ -25,7 +25,7 @@
             <div class="row">
                 <div class="form-group col-lg-7 col-md-6 col-sm-12">
                     <label class="form-label" asp-for="Solicitante"></label>
-                    <input type="text" class="form-control" asp-for="Solicitante" required minlength="5" maxlength="100">
+                    <input type="text" id="autocomplete" class="form-control" asp-for="Solicitante" required minlength="5" maxlength="100">
                     <span class="text-danger" asp-validation-for="Solicitante"></span>
                 </div>
             </div>
@@ -54,10 +54,7 @@
                     <label class="form-label" asp-for="DataAbertura"></label>
 
                     <div class="input-group date" data-provide="datepicker">
-                        <input type="text" class="form-control" asp-for="DataAbertura"  readonly asp-format="{0:dd/MM/yyyy}" />
-                        <div class="input-group-addon">
-                            <span class="glyphicon glyphicon-calendar"></span>
-                        </div>
+                        <input type="text" id="datepicker" class="form-control" asp-for="DataAbertura" readonly asp-format="{0:dd/MM/yyyy}" />
                     </div>
                     <span class="text-danger" asp-validation-for="DataAbertura"></span>
                 </div>
@@ -91,10 +88,9 @@
     <!-- SweetAlert2 -->
     <script src="~/lib/sweetalert2/sweetalert2.all.min.js"></script>
     <!-- Bootstrap Datepicker -->
-    <script src="~/lib/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
-    <script src="~/lib/bootstrap-datepicker/locales/bootstrap-datepicker.pt-br.min.js"></script>
-
+    
     <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
-
     <script src="~/js/Chamados/Cadastrar.js" asp-append-version="true"></script>
+    <script src="~/lib/jqueryUi/jquery-ui.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 }

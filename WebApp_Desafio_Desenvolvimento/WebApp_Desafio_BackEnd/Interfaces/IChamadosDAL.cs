@@ -13,5 +13,6 @@ namespace WebApp_Desafio_BackEnd.Interfaces
         Chamado ObterChamado(int idChamado);
         bool GravarChamado(int ID, string Assunto, string Solicitante, int IdDepartamento, DateTime DataAbertura);
         bool ExcluirChamado(int idChamado);
+        List<string> ListarSolicitantes();
     }
 }

@@ -47,9 +47,7 @@
                     confirmButtonText: 'OK',
                     icon: 'error'
                 });
-
             },
         });
     });
-
 });
